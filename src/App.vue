@@ -1,24 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld />
+    <HomeIcon />
+    <ExampleCard msg="Hello, world!" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+const HelloWorld = () => import("./components/HelloWorld.vue");
+const HomeIcon = () =>
+  import("vuetify-lib-test-lib/packages/vuetify-lib-test-lib").then(
+    lib => lib.HomeIcon
+  );
+const ExampleCard = () =>
+  import("vuetify-lib-test-lib/packages/vuetify-lib-test-lib").then(
+    lib => lib.ExampleCard
+  );
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    HelloWorld,
+    HomeIcon,
+    ExampleCard
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
