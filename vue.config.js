@@ -7,5 +7,17 @@ module.exports = {
     if (process.env.NODE_ENV === `production`) {
       config.plugins.push(...plugins);
     }
+  },
+  pluginOptions: {
+    ssr: {
+      entry: target => `./src/entry-${target}`,
+      defaultTitle: "Hello",
+      nodeExternalsWhitelist: [
+        /\.css$/,
+        /\?vue&type=style/,
+        /^vuetify/,
+        /^register-service-worker/
+      ]
+    }
   }
 };
